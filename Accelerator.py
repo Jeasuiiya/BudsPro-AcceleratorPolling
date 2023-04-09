@@ -1,12 +1,13 @@
+#[*]蓝牙设备:Galaxy Buds Live (E4F3)
+#[+]蓝牙MAC:0C:8D:CA:51:E4:F3
+#python Accelerator.py 0C:8D:CA:51:E4:F3
+
 #!/usr/bin/env python3
 
 """
 A python script to stream head-tracking data from the Samsung Galaxy Buds Pro
 """
 
-# License: MIT
-# Author: @ThePBone
-# 04/26/2021
 import time
 
 import bluetooth
@@ -16,10 +17,10 @@ import argparse
 from AcceleratorSensorManager import AcceleratorSensorManager
 
 
-def __accelerator_sensor_callback(left, right):
+def __accelerator_sensor_callback(left, right, timestamp):
     # Each parameter is a float list containing the raw xyz values of the accelerometer
     # The values are ordered like this: x, y, z
-    print(f"x={left[0]}, y={left[1]}, z={left[2]}; x2={right[0]}, y2={right[1]}, z2={right[2]}")
+    print(f"x={left[0]}, y={left[1]}, z={left[2]}; x2={right[0]}, y2={right[1]}, z2={right[2]},time={timestamp}")
 
 
 def main():
